@@ -8,6 +8,7 @@ public class Cluster {
     private Set pixelSet;
     private Center center;
 
+    public Cluster(int id, Pixel center){};
 
     public void clear(){}
     public void addPixel(Pixel pixel){};

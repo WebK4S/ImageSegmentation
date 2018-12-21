@@ -1,4 +1,14 @@
 package algorithm;
 
-public class KMeans implements Segmentation {
+import entities.Cluster;
+
+import java.util.Set;
+
+public class KMeans extends Segmentation {
+
+
+    @Override
+    public Cluster createCluster() {
+        return null;
+    }
 }
