@@ -1,4 +1,4 @@
 package algorithm;
 
-public class KMeans {
+public class KMeans implements Segmentation {
 }
