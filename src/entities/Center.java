@@ -1,4 +1,9 @@
 package entities;
 
-public class Center extends Pixel {
+public class Center implements Pixel {
+
+    @Override
+    public int evaluate(Pixel pixel) {
+        return 0;
+    }
 }

@@ -1,14 +1,13 @@
 package algorithm;
 
 import entities.Cluster;
+import entities.Pixel;
 
-import java.util.Set;
+public class KMeans {
 
-public class KMeans extends Segmentation {
+    private Image image;
 
-
-    @Override
-    public Cluster createCluster() {
+    public Cluster createCluster(Pixel center) {
         return null;
     }
 }

@@ -1,18 +1,38 @@
 package entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Set;
 
 public class Cluster {
 
-    private int id;
-    private Set pixelSet;
-    private Center center;
+    private Set<Pixel> pixelSet;
 
-    public Cluster(int id, Pixel center){};
+    private Pixel center;
 
     public void clear(){}
-    public void addPixel(Pixel pixel){};
-    public void removePixel(Pixel pixel){};
+    public void addPixel(Pixel pixel){
+        pixelSet.add(pixel);
+    };
+    public void removePixel(Pixel pixel){
+        pixelSet.remove(pixel);
+    };
 
+    public void updateCenter(Pixel newCenter){
+        center=newCenter;
+    };
+
+
+    public void setCenter(Pixel center) {
+        this.center = center;
+    }
+
+    public Pixel getCenter() {
+        return center;
+    }
+
+    public Set getPixels(){
+        return pixelSet;
+    }
 
 }
