@@ -2,8 +2,14 @@ package entities;
 
 public class Center implements Pixel {
 
+
     @Override
-    public int evaluate(Pixel pixel) {
-        return 0;
+    public void setPosition(Position position) {
+
+    }
+
+    @Override
+    public Position getPosition() {
+        return null;
     }
 }

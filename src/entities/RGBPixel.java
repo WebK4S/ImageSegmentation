@@ -1,21 +1,19 @@
 package entities;
 
-public class RGBPixel extends Pixel {
+public class RGBPixel implements Pixel {
 
+    Position position;
     int red;
     int green;
     int blue;
 
-    public RGBPixel(){};
-    public RGBPixel(int red, int green, int blue){
-        this.red = red;
-        this.green=green;
-        this.blue=blue;
-    }
+    public RGBPixel(){}
 
-    @Override
-    public int evaluate(Pixel pixel) {
-        return 0;
+    public RGBPixel(Position position, int rgb){
+        this.red = rgb >> 16&0x000000F;
+        this.green = rgb >> 8&0x000000F;
+        this.blue = rgb >> 0&0x000000F ;
+        this.position = position;
     }
 
     public int getRed() {
@@ -42,4 +40,12 @@ public class RGBPixel extends Pixel {
         this.blue = blue;
     }
 
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+    @Override
+    public Position getPosition() {
+        return position;
+    }
 }

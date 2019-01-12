@@ -1,10 +1,8 @@
 package entities;
 
-public abstract class Pixel {
+public interface Pixel {
 
-   int posX;
-   int posY;
-
-    public int evaluate(Pixel pixel){return 0;}
+    public void setPosition(Position position);
+    public Position getPosition();
 
 }

@@ -3,11 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="rgbPixel" class="entities.RGBPixel"/>
+    <bean id="position" class="entities.Position"/>
+    <bean id="rgbPixel" class="entities.RGBPixel">
+        <property name="position" ref="position"></property>
+    </bean>
     <bean id="gsPixel" class="entities.GSPixel"/>
     <bean id="center" class="entities.Center"/>
     <bean id="cluster" class="entities.Cluster">
-        <property name="center" ref="center"/>
+        <constructor-arg ref="rgbPixel"/>
     </bean>
 
 

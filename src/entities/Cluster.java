@@ -1,16 +1,39 @@
 package entities;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
+import java.util.HashSet;
 import java.util.Set;
+
+import static java.lang.Math.abs;
 
 public class Cluster {
 
-    private Set<Pixel> pixelSet;
+    private Set<Pixel> pixelSet = new HashSet<Pixel>();
+    private RGBPixel center;
+    private int reds;
+    private int greens;
+    private int blues;
+    private int pixelCount;
 
-    private Pixel center;
+    public Cluster(RGBPixel center) {
+        this.center = center;
+    }
 
-    public void clear(){}
+    public int calcDistance(RGBPixel pixel){
+        int redDifference = abs(pixel.getRed() -  center.getRed());
+        int blueDifference = abs(pixel.getBlue() -  center.getBlue());
+        int greenDifference = abs(pixel.getGreen() -  center.getGreen());
+
+        return (redDifference + blueDifference + greenDifference)/3;
+    }
+
+    public void clear(){
+        this.reds = 0;
+        this.blues = 0;
+        this.greens = 0;
+        this.center = null;
+        this.pixelCount = 0;
+        this.pixelSet.clear();
+    }
     public void addPixel(Pixel pixel){
         pixelSet.add(pixel);
     };
@@ -18,20 +41,17 @@ public class Cluster {
         pixelSet.remove(pixel);
     };
 
-    public void updateCenter(Pixel newCenter){
-        center=newCenter;
+    public void updateCenter(RGBPixel newCenter){
+        this.center=newCenter;
     };
 
-
-    public void setCenter(Pixel center) {
+    public void setCenter(RGBPixel center) {
         this.center = center;
     }
-
     public Pixel getCenter() {
         return center;
     }
-
-    public Set getPixels(){
+    public Set<Pixel> getPixels(){
         return pixelSet;
     }
 
