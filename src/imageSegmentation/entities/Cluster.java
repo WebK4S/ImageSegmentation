@@ -1,27 +1,41 @@
-package entities;
+package imageSegmentation.entities;
+
+import imageSegmentation.metrics.Metric;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static java.lang.Math.abs;
 
+@Component
+@Scope("prototype")
 public class Cluster {
 
     private Set<Pixel> pixelSet = new HashSet<Pixel>();
-    private RGBPixel center;
+
+    @Autowired
+    private Pixel center;
+
+    @Autowired
+    Metric metric;
+
+
     private int reds;
     private int greens;
     private int blues;
     private int pixelCount;
 
-    public Cluster(RGBPixel center) {
+    public Cluster(Pixel center) {
         this.center = center;
     }
 
     public int calcDistance(RGBPixel pixel){
-        int redDifference = abs(pixel.getRed() -  center.getRed());
-        int blueDifference = abs(pixel.getBlue() -  center.getBlue());
-        int greenDifference = abs(pixel.getGreen() -  center.getGreen());
+        int redDifference = abs(pixel.getRgb().getRed() -  center.getRgb().getRed());
+        int blueDifference = abs(pixel.getRgb().getBlue() -  center.getRgb().getBlue());
+        int greenDifference = abs(pixel.getRgb().getGreen() -  center.getRgb().getGreen());
 
         return (redDifference + blueDifference + greenDifference)/3;
     }

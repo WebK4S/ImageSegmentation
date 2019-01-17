@@ -1,20 +1,21 @@
-package entities;
+package imageSegmentation.entities;
 
-public class RGBPixel implements Pixel {
+import org.springframework.stereotype.Component;
 
-    Position position;
-    int red;
-    int green;
-    int blue;
+@Component
+public class RGB {
 
-    public RGBPixel(){}
+    private int red;
+    private int green;
+    private int blue;
 
-    public RGBPixel(Position position, int rgb){
+
+    public RGB(int rgb){
         this.red = rgb >> 16&0x000000F;
         this.green = rgb >> 8&0x000000F;
         this.blue = rgb >> 0&0x000000F ;
-        this.position = position;
     }
+
 
     public int getRed() {
         return red;
@@ -40,12 +41,4 @@ public class RGBPixel implements Pixel {
         this.blue = blue;
     }
 
-    @Override
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-    @Override
-    public Position getPosition() {
-        return position;
-    }
 }

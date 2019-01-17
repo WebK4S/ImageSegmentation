@@ -1,10 +1,13 @@
-package entities;
+package imageSegmentation.entities;
+
+import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+@Component
 public class Image {
 
 
@@ -22,11 +25,11 @@ public class Image {
     // Constructor should load image
 
     //TODO Prepare saveImage method
-    public void saveImage(BufferedImage image, String targetImage){
+    public void saveImage(String targetImage){
         File file = new File(targetImage);
 
         try{
-            ImageIO.write(image,"png",file);
+            ImageIO.write(this.image,"png",file);
         }
         catch (IOException e){
             System.out.println("Unable to save an image "+ e.getMessage());
@@ -35,7 +38,7 @@ public class Image {
 
     public RGBPixel getRGBPixel(Position position){
         if (this.image != null){
-            return new RGBPixel(position, this.image.getRGB(position.getX(), position.getY()));
+            return new RGBPixel(position, new RGB(this.image.getRGB(position.getX(), position.getY())));
         }
         return null;
     }

@@ -1,5 +1,5 @@
-import entities.Image;
-import entities.Position;
+import imageSegmentation.entities.Image;
+import imageSegmentation.entities.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

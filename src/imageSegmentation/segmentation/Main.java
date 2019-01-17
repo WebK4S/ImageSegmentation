@@ -1,4 +1,4 @@
-package segmentation;
+package imageSegmentation.segmentation;
 
 public class Main {
 
