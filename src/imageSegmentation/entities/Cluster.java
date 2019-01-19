@@ -32,7 +32,7 @@ public class Cluster {
         this.center = center;
     }
 
-    public int calcDistance(RGBPixel pixel){
+    public int calcDistance(Pixel pixel){
         int redDifference = abs(pixel.getRgb().getRed() -  center.getRgb().getRed());
         int blueDifference = abs(pixel.getRgb().getBlue() -  center.getRgb().getBlue());
         int greenDifference = abs(pixel.getRgb().getGreen() -  center.getRgb().getGreen());

@@ -22,6 +22,23 @@ public class KMeans {
         this.numberOfClusters = numberOfClusters;
     }
 
+    public Cluster findClosestCluster(Pixel pixel){
+        int distance = Integer.MAX_VALUE;
+        int size = clusters.size();
+        for (int i = 0; i < size; i++){
+            Cluster cluster = clusters.get(i);
+            int distanceToCluster = cluster.calcDistance(pixel);
+            if(distanceToCluster < distance){
+                distance = distanceToCluster;
+                if (pixel.getClusterId() != i){
+                    return cluster;
+                }
+            }
+
+        }
+        return null;
+    }
+
     public void initClusters(){
         int width = image.getImageWidth();
         int height = image.getImageHeight();
