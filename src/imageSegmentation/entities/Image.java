@@ -1,5 +1,6 @@
 package imageSegmentation.entities;
 
+import imageSegmentation.entities.pixel.RGBPixel;
 import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;

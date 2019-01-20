@@ -1,5 +1,7 @@
-package imageSegmentation.entities;
+package imageSegmentation.entities.pixel;
 
+import imageSegmentation.entities.Position;
+import imageSegmentation.entities.RGB;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

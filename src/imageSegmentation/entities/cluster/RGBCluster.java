@@ -1,35 +1,27 @@
-package imageSegmentation.entities;
+package imageSegmentation.entities.cluster;
 
-import imageSegmentation.metrics.Metric;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import imageSegmentation.entities.pixel.Pixel;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static java.lang.Math.abs;
 
-@Component
-@Scope("prototype")
-public class Cluster {
+public class RGBCluster implements Cluster {
 
-    private Set<Pixel> pixelSet = new HashSet<Pixel>();
+    private int reds = 0;
+    private int greens = 0;
+    private int blues = 0;
 
-    @Autowired
     private Pixel center;
-
-    @Autowired
-    Metric metric;
-
-
-    private int reds;
-    private int greens;
-    private int blues;
     private int pixelCount;
+    private Set<Pixel> pixelSet = new HashSet<>();
 
-    public Cluster(Pixel center) {
+
+
+    public RGBCluster(Pixel center) {
         this.center = center;
+
     }
 
     public int calcDistance(Pixel pixel){
@@ -49,24 +41,30 @@ public class Cluster {
         this.pixelSet.clear();
     }
     public void addPixel(Pixel pixel){
+        reds += pixel.getRgb().getRed();
+        greens += pixel.getRgb().getGreen();
+        blues += pixel.getRgb().getBlue();
         pixelSet.add(pixel);
-    };
-    public void removePixel(Pixel pixel){
-        pixelSet.remove(pixel);
-    };
-
-    public void updateCenter(RGBPixel newCenter){
-        this.center=newCenter;
-    };
-
-    public void setCenter(RGBPixel center) {
-        this.center = center;
+        pixelCount++;
     }
+    public void removePixel(Pixel pixel){
+        reds -= pixel.getRgb().getRed();
+        greens -= pixel.getRgb().getGreen();
+        blues -= pixel.getRgb().getBlue();
+        pixelSet.remove(pixel);
+        pixelCount--;
+    }
+
+    public void updateCenter(Pixel newCenter){
+        this.center=newCenter;
+    }
+
     public Pixel getCenter() {
         return center;
     }
-    public Set<Pixel> getPixels(){
-        return pixelSet;
+
+    public Set getPixelSet() {
+        return null;
     }
 
 }

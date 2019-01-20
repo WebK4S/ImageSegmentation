@@ -1,6 +1,6 @@
 package imageSegmentation.metrics;
 
-import imageSegmentation.entities.Pixel;
+import imageSegmentation.entities.pixel.Pixel;
 import org.springframework.stereotype.Component;
 
 import static java.lang.Math.sqrt;

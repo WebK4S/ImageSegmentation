@@ -1,9 +1,11 @@
 package imageSegmentation.algorithm;
 
-import imageSegmentation.entities.Cluster;
 import imageSegmentation.entities.Image;
-import imageSegmentation.entities.Pixel;
 import imageSegmentation.entities.Position;
+import imageSegmentation.entities.cluster.Cluster;
+import imageSegmentation.entities.cluster.GSCluster;
+import imageSegmentation.entities.cluster.RGBCluster;
+import imageSegmentation.entities.pixel.Pixel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,10 +18,12 @@ public class KMeans {
     private Image image;
     private Integer numberOfClusters;
     private Map<Integer, Cluster> clusters = new HashMap<Integer, Cluster>();
+    private ColorType colorType;
 
-    public KMeans(Image image, Integer numberOfClusters){
+    public KMeans(Image image, Integer numberOfClusters, ColorType colorType){
         this.image = image;
         this.numberOfClusters = numberOfClusters;
+        this.colorType = colorType;
     }
 
     public Cluster findClosestCluster(Pixel pixel){
@@ -57,7 +61,22 @@ public class KMeans {
     }
 
     public void createCluster (Integer id, Pixel center ){
-        Cluster cluster = new Cluster(center);
+
+        Cluster cluster = null;
+
+        switch (colorType){
+            case GS:
+                cluster = new GSCluster(center);
+                break;
+
+            case RGB:
+                cluster = new RGBCluster(center);
+                break;
+
+             default:
+                 System.out.println("Unsupported color type");
+                 return;
+        }
         clusters.put(id, cluster);
     }
 
