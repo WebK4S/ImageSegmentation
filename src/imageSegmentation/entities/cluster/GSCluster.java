@@ -10,34 +10,37 @@ public class GSCluster implements Cluster {
     private Pixel center;
     private int pixelCount;
 
-
-
-
     public GSCluster(Pixel center) {
     }
 
-    @Override
-    public int calcDistance(Pixel pixel) {
-        return 0;
-    }
-
-    public void clear(){
+    public void clear() {
         this.center = null;
         this.pixelCount = 0;
         this.pixelSet.clear();
     }
 
-    public void addPixel(Pixel pixel){
+    @Override
+    public void evaluateCenter() {
+
+    }
+
+    @Override
+    public int calcDistance(Pixel pixel, Pixel center) {
+        return 0;
+    }
+
+    public void addPixel(Pixel pixel) {
         pixelSet.add(pixel);
         pixelCount++;
     }
-    public void removePixel(Pixel pixel){
+
+    public void removePixel(Pixel pixel) {
         pixelSet.remove(pixel);
         pixelCount--;
     }
 
-    public void updateCenter(Pixel newCenter){
-        this.center=newCenter;
+    public void updateCenter(Pixel newCenter) {
+        this.center = newCenter;
     }
 
     public Pixel getCenter() {

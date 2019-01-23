@@ -28,6 +28,18 @@ public class RGBPixel implements Pixel {
     public RGB getRgb() {
         return rgb;
     }
+    public void setRgb(RGB rgb){
+        this.rgb = rgb;
+    }
+
+    @Override
+    public String toString() {
+        return "RGBPixel{" +
+                "position=" + position.getX() + " " + position.getY() +
+                ", rgb=" + rgb.getBlue() + " " + rgb.getGreen() + " " + rgb.getRed()+
+                ", clusterId=" + clusterId +
+                '}';
+    }
 
     public int getClusterId() {
         return clusterId;

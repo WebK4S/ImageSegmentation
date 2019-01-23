@@ -16,6 +16,15 @@ public class RGB {
         this.blue = rgb >> 0&0x000000F ;
     }
 
+    public RGB(int red, int green, int blue) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
+
+    public int comvertToInt(){
+        return (red << 16 | green << 8 | blue);
+    }
 
     public int getRed() {
         return red;

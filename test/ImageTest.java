@@ -22,7 +22,7 @@ public class ImageTest {
 
     @Test
     public void getRGBTest(){
-        Assertions.assertNotNull(image.getRGBPixel(new Position(0,0)));
+        Assertions.assertNotNull(image.getPixel(new Position(0,0)));
     }
 
 

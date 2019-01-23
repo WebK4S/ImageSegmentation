@@ -1,5 +1,6 @@
 package imageSegmentation.entities;
 
+import imageSegmentation.entities.pixel.Pixel;
 import imageSegmentation.entities.pixel.RGBPixel;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ public class Image {
 
 
     BufferedImage image = null;
+    String filename;
 
     public Image(String filename){
         try{
@@ -23,11 +25,16 @@ public class Image {
         }
 
     }
+
+    public Image(BufferedImage image, String filename){
+        this.image = image;
+        this.filename = filename;
+    }
     // Constructor should load image
 
     //TODO Prepare saveImage method
-    public void saveImage(String targetImage){
-        File file = new File(targetImage);
+    public void saveImage(){
+        File file = new File(this.filename);
 
         try{
             ImageIO.write(this.image,"png",file);
@@ -37,7 +44,7 @@ public class Image {
         }
     };
 
-    public RGBPixel getRGBPixel(Position position){
+    public Pixel getPixel(Position position){
         if (this.image != null){
             return new RGBPixel(position, new RGB(this.image.getRGB(position.getX(), position.getY())));
         }
