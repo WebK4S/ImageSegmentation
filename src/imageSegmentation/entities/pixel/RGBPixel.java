@@ -12,8 +12,11 @@ public class RGBPixel implements Pixel {
 
     private Position position;
     private RGB rgb;
-    private int clusterId;
+    private Integer clusterId;
 
+    public RGBPixel(Position position){
+        this.position = position;
+    }
 
     public RGBPixel(Position position, RGB rgb){
         this.rgb = rgb;
@@ -41,11 +44,12 @@ public class RGBPixel implements Pixel {
                 '}';
     }
 
-    public int getClusterId() {
+    public Integer getClusterId() {
         return clusterId;
     }
 
-    public void setClusterId(int clusterId) {
+    @Override
+    public void setClusterId(Integer clusterId) {
         this.clusterId = clusterId;
     }
 }

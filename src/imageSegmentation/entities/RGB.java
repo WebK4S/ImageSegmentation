@@ -11,15 +11,24 @@ public class RGB {
 
 
     public RGB(int rgb){
-        this.red = rgb >> 16&0x000000F;
-        this.green = rgb >> 8&0x000000F;
-        this.blue = rgb >> 0&0x000000F ;
+        this.red = rgb>>16&0x000000FF;
+        this.green = rgb>>8&0x000000FF;
+        this.blue = rgb>>0&0x000000FF;
     }
 
     public RGB(int red, int green, int blue) {
         this.red = red;
         this.green = green;
         this.blue = blue;
+    }
+
+    @Override
+    public String toString() {
+        return "RGB{" +
+                "red=" + red +
+                ", green=" + green +
+                ", blue=" + blue +
+                '}';
     }
 
     public int comvertToInt(){

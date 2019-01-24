@@ -25,7 +25,12 @@ public class GSCluster implements Cluster {
     }
 
     @Override
-    public int calcDistance(Pixel pixel, Pixel center) {
+    public void applyColor() {
+
+    }
+
+    @Override
+    public double calcDistance(Pixel pixel, Pixel center) {
         return 0;
     }
 

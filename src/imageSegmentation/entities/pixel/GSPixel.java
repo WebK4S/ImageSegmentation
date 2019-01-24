@@ -27,9 +27,15 @@ public class GSPixel implements Pixel{
     public Position getPosition() {
         return this.position;
     }
-    public int getClusterId() {
+    public Integer getClusterId() {
         return 0;
     }
+
+    @Override
+    public void setClusterId(Integer id) {
+
+    }
+
     public double getBrightness(){
         return brightness;
     }

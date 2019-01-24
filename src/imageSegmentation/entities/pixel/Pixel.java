@@ -7,6 +7,7 @@ public interface Pixel {
 
     public RGB getRgb();
     public Position getPosition();
-    public int getClusterId();
+    public Integer getClusterId();
+    public void setClusterId(Integer id);
 
 }

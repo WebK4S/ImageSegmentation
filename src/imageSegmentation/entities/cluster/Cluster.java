@@ -6,7 +6,7 @@ import java.util.Set;
 
 public interface Cluster {
 
-    public int calcDistance(Pixel pixel, Pixel center);
+    public double calcDistance(Pixel pixel, Pixel center);
     public void addPixel(Pixel pixel);
     public void removePixel(Pixel pixel);
     public void updateCenter(Pixel pixel);
@@ -14,4 +14,5 @@ public interface Cluster {
     public Set getPixelSet();
     public void clear();
     public void evaluateCenter();
+    public void applyColor();
 }
