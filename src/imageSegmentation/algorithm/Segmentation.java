@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 public class Segmentation {
 
     public static final int NUMBER_OF_CLUSTERS = 32;
-    public static final String FILENAME = "test3.png";
-    public static final String RESULT_FILE = "result.png";
+    public static final String FILENAME = "test2.png";
+    public static final String RESULT_FILE = "result2.png";
     public static final String SRC = System.getProperty("user.dir") + "\\res\\";
 
 

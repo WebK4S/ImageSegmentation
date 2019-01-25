@@ -21,7 +21,7 @@ public class Image {
             this.image = ImageIO.read(new File(filename));
         }
         catch (Exception e){
-            System.out.println("File not found " + e.getStackTrace());
+            throw new RuntimeException(e);
         }
 
     }
@@ -40,9 +40,9 @@ public class Image {
             ImageIO.write(this.image,"png",file);
         }
         catch (IOException e){
-            System.out.println("Unable to save an image "+ e.getMessage());
+            throw new RuntimeException(e);
         }
-    };
+    }
 
     public Pixel getPixel(Position position){
         if (this.image != null){

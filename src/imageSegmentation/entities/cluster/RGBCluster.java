@@ -101,15 +101,6 @@ public class RGBCluster implements Cluster {
         System.out.println("Old center: "+ center.toString());
         System.out.println("Updated center:" + centerCandidate.toString());
         updateCenter(centerCandidate);
-
-
-
-        /*if(!(center.getRgb().getRed() == centerCandidate.getRgb().getRed() &&
-                center.getRgb().getGreen() == centerCandidate.getRgb().getGreen() &&
-                center.getRgb().getBlue() == centerCandidate.getRgb().getBlue())){
-            System.out.println("In UpdateCenter");
-        }*/
-        //updateCenter(centerCandidate);
     }
 
     public void addPixel(Pixel pixel){

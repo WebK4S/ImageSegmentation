@@ -1,6 +1,6 @@
 package imageSegmentation.algorithm;
 
 public enum ColorType {
-    GS,
+    GRAYSCALE,
     RGB
 }

@@ -6,14 +6,12 @@ import imageSegmentation.entities.cluster.Cluster;
 import imageSegmentation.entities.cluster.GSCluster;
 import imageSegmentation.entities.cluster.RGBCluster;
 import imageSegmentation.entities.pixel.Pixel;
-import imageSegmentation.entities.pixel.RGBPixel;
 import imageSegmentation.metrics.EuclidessMetric;
 import imageSegmentation.metrics.Metric;
 
 import java.awt.image.BufferedImage;
 import java.util.*;
 
-import static imageSegmentation.algorithm.Segmentation.NUMBER_OF_CLUSTERS;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
@@ -147,7 +145,7 @@ public class KMeans {
         Cluster cluster = null;
 
         switch (colorType) {
-            case GS:
+            case GRAYSCALE:
                 center.setClusterId(id);
                 cluster = new GSCluster(center);
                 break;
